@@ -40,23 +40,23 @@ public class User implements Serializable {
     @Column(length = 100)
     private String title;
 
-//    @ManyToMany(mappedBy = "user")
-//    private List<Skill> skills;
+    @ManyToMany(mappedBy = "user")
+    private List<Skill> skills;
 
-//    @ManyToMany
-//    private List<User> favoriteUsers;
+    @ManyToMany
+    private List<User> favoriteUsers;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Post> posts;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Order> orders;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<HourlyRate> hourlyRate;
-//
-//    @OneToMany(mappedBy = "user")
-//    private List<Rating> ratings;
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "user")
+    private List<OrderModel> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<HourlyRate> hourlyRate;
+
+    @OneToMany(mappedBy = "user")
+    private List<Rating> ratings;
 
     //private List<Language> language;
 
