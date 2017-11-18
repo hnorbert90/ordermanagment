@@ -1,6 +1,5 @@
 package com.epam.webinar.hnorbert90.finalproject.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,40 +11,44 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Post {
+
     @GeneratedValue
     @Id
     private long id;
-    
+
     @ManyToOne
-    @NotNull
     private User user;
     @Column(length = 1024)
     @NotNull
     private String content;
-    private final Date POSTED = Calendar.getInstance().getTime();
-    
+    private Date posted;
+
     private Post() {
-       
+
     }
 
     public void setPostedBy(User postedBy) {
         this.user = postedBy;
     }
-    
+
     public String getContent() {
         return content;
     }
-    
+
     public void setContent(String content) {
         this.content = content;
     }
-    
-    public Date getPOSTED() {
-        return POSTED;
-    }
-    
+
     public User getPostedBy() {
         return user;
     }
-    
+
+    public Date getPosted() {
+        return posted;
+    }
+
+    public void setPosted(Date posted) {
+        this.posted = posted;
+    }
+
 }

@@ -1,9 +1,20 @@
 package com.epam.webinar.hnorbert90.finalproject.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Language {
-
+    @GeneratedValue
+    @Id
+    private long id;
+    
+    @ManyToOne
+    private User user;
+    
     private String language;
     private LanguageLevel level;
 

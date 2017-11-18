@@ -1,6 +1,5 @@
 package com.epam.webinar.hnorbert90.finalproject.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,7 +17,6 @@ public class OrderModel {
     private long id;
 
     @ManyToOne
-    @NotNull
     private User user;
 
     @NotNull
@@ -36,13 +32,11 @@ public class OrderModel {
 
     private boolean accepted = false;
 
-    @Temporal(TemporalType.DATE)
     private Date deadline;
 
-    @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    private final Date CREATED = Calendar.getInstance().getTime();
+    private Date created;
 
     private OrderModel() {}
 
@@ -102,8 +96,15 @@ public class OrderModel {
         this.startDate = startDate;
     }
 
-    public Date getCREATED() {
-        return CREATED;
+    
+    public Date getCreated() {
+        return created;
     }
+
+    
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
 
 }

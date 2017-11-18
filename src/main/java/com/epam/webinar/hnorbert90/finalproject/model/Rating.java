@@ -1,6 +1,5 @@
 package com.epam.webinar.hnorbert90.finalproject.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -18,11 +17,9 @@ public class Rating {
     @Id
     private long id;
 
-    @NotNull
-    private User ratedBy;
+    private long ratedBy;
 
     @ManyToOne
-    @NotNull
     private User user;
 
     @NotNull
@@ -34,13 +31,13 @@ public class Rating {
      
     }
 
-    private final Date RATE_DATE = Calendar.getInstance().getTime();
+    private Date rateDate;
 
-    public User getRatedBy() {
+    public long getRatedBy() {
         return ratedBy;
     }
 
-    public void setRatedBy(User ratedBy) {
+    public void setRatedBy(long ratedBy) {
         this.ratedBy = ratedBy;
     }
 
@@ -61,6 +58,16 @@ public class Rating {
     }
 
     public Date getRATE_DATE() {
-        return RATE_DATE;
+        return rateDate;
+    }
+
+    
+    public Date getRateDate() {
+        return rateDate;
+    }
+
+    
+    public void setRateDate(Date rateDate) {
+        this.rateDate = rateDate;
     }
 }
